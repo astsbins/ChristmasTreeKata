@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChristmassTreeKata\ChristmasTreeKata.csproj" />
+    <ProjectReference Include="..\ChristmasTreeKata\ChristmasTreeKata.csproj" />
   </ItemGroup>
 
   <ItemGroup>
