@@ -22,7 +22,7 @@ public class ChristmasTree
 
     }
 
-    public void turnOn()
+    public void turnOnAll()
     {
         lightGrid = Enumerable.Range(0, lightGridSize)
            .Select(x => Enumerable.Range(0, lightGridSize)
@@ -37,5 +37,10 @@ public class ChristmasTree
         return lightGrid;
     }
 
-
+    public void turnOffAll()
+    {
+     lightGrid = Enumerable.Range(0, lightGridSize)
+        .Select(x => Enumerable.Range(0, lightGridSize)
+            .Select(y => 0).ToArray()).ToArray();
+    }
 }
