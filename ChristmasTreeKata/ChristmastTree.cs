@@ -7,9 +7,11 @@ namespace ChristmasTreeKata;
 public class ChristmasTree
 {
     private int[][] lightGrid;
+    private int lightGridSize;
     public ChristmasTree(int gridSize) {
-    lightGrid = Enumerable.Range(0, gridSize)
-      .Select(x => Enumerable.Range(0, gridSize)
+        lightGridSize = gridSize;
+    lightGrid = Enumerable.Range(0, lightGridSize)
+      .Select(x => Enumerable.Range(0, lightGridSize)
            .Select(y => 0).ToArray()).ToArray();
     }
     
@@ -20,9 +22,11 @@ public class ChristmasTree
 
     }
 
-    public bool turnOn()
+    public void turnOn()
     {
-        return true;
+        lightGrid = Enumerable.Range(0, lightGridSize)
+           .Select(x => Enumerable.Range(0, lightGridSize)
+            .Select(y => 1).ToArray()).ToArray();
     }
 
    
