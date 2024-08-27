@@ -29,13 +29,40 @@ namespace ChristmasTreeTests
         {
             _tree.turnOnAll();
             int[][] lightGrid = _tree.getGrid();
-            Assert.Equal(1000, lightGrid[0].Sum());
+            for (int i = 0; i < lightGrid.Length; i++)
+            {
+                Assert.Equal(1000, lightGrid[0].Sum());
+            }
         }
 
         [Fact]
         public void turnOffAllTest()
         {
+            _tree.turnOnAll();
             _tree.turnOffAll();
+            int[][] lightGrid = _tree.getGrid();
+            for (int i = 0; i < lightGrid.Length; i++)
+            {
+                Assert.Equal(0, lightGrid[0].Sum());
+            }
+        }
+
+        [Fact]
+        public void toggleOnAllTest()
+        {
+            _tree.togglOnOffAll();
+            int[][] lightGrid = _tree.getGrid();
+            for (int i = 0; i < lightGrid.Length; i++)
+            {
+                Assert.Equal(1000, lightGrid[0].Sum());
+            }
+
+            _tree.togglOnOffAll();
+            lightGrid = _tree.getGrid();
+            for (int i = 0; i < lightGrid.Length; i++)
+            {
+                Assert.Equal(0, lightGrid[0].Sum());
+            }
         }
     }
 }
