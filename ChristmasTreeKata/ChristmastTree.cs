@@ -38,7 +38,7 @@ public class ChristmasTree
         {
             for (int j = startCorner[1]; j<= EndCorner[1]; j++)
             {
-                lightGrid[i][j] = 1;
+                lightGrid[j][i] = 1;
             }
         }
     }
@@ -54,7 +54,7 @@ public class ChristmasTree
             {
                 for (int j = startCorner[1]; j <= EndCorner[1]; j++)
                 {
-                    lightGrid[i][j] = 0;
+                    lightGrid[j][i] = 0;
                 }
             }
 
@@ -69,7 +69,7 @@ public class ChristmasTree
         {
             for (int j = startCorner[1]; j <= EndCorner[1]; j++)
             {
-                lightGrid[i][j] = (lightGrid[i][j] + 1)%2; // if 0 +1 = 1 = on, if 1 + 1 = 2; 2%2=0 = off
+                lightGrid[j][i] = (lightGrid[j][i] + 1) % 2; // if 0 +1 = 1 = on, if 1 + 1 = 2; 2%2=0 = off
             }
         }
     }
