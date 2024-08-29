@@ -38,7 +38,7 @@ public class ChristmasTree
         {
             for (int j = startCorner[1]; j<= EndCorner[1]; j++)
             {
-                lightGrid[j][i] = 1;
+                lightGrid[j][i] += 1;
             }
         }
     }

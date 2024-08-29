@@ -35,16 +35,33 @@ namespace ChristmasTreeTests
             {
                 Assert.Equal(1000, lightGrid[i].Sum());
             }
+
+            _tree.turnOn();
+           lightGrid = _tree.getGrid();
+            for (int i = 0; i < lightGrid.Length; i++)
+            {
+                Assert.Equal(2000, lightGrid[i].Sum());
+            }
         }
 
         [Fact]
         public void turnOffAllTest()
         {
+            _tree.turnOn();
             _tree.turnOff();
             int[][] lightGrid = _tree.getGrid();
             for (int i = 0; i < lightGrid.Length; i++)
             {
                 Assert.Equal(0, lightGrid[i].Sum());
+            }
+
+            _tree.turnOn();
+            _tree.turnOn();
+            _tree.turnOff();
+            lightGrid = _tree.getGrid();
+            for (int i = 0; i < lightGrid.Length; i++)
+            {
+                Assert.Equal(1000, lightGrid[i].Sum());
             }
         }
 
@@ -100,9 +117,9 @@ namespace ChristmasTreeTests
         public void instructionsTest()
         {
             _tree.turnOn([887, 9], [959, 629]);
-            Assert.Equal(45333, count());
+            Assert.Equal(45333, total());
             _tree.turnOn([454, 398], [844, 448]);
-            Assert.Equal(65274, count());
+            Assert.Equal(65274, total());
             _tree.turnOff([539, 243], [559, 965]);
             _tree.turnOff([370, 819], [676, 868]);
             _tree.turnOff([145, 40], [370, 997]);
@@ -110,12 +127,12 @@ namespace ChristmasTreeTests
             _tree.turnOn([351, 678], [951, 908]);
             _tree.togglOnOff([720, 196], [897, 994]);
             _tree.togglOnOff([831, 394], [904, 860]);
-            Assert.Equal(230022, count());
+            Assert.Equal(230022, total());
 
 
 
         }
-        public int count()
+        public int total()
         {
             int[][] lightGrid = _tree.getGrid();
             int total = 0;
