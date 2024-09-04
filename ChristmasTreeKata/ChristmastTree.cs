@@ -54,7 +54,7 @@ public class ChristmasTree
             {
                 for (int j = startCorner[1]; j <= EndCorner[1]; j++)
                 {
-                    lightGrid[j][i] = 0;
+                    lightGrid[j][i] -= 1;
                 }
             }
 
@@ -69,8 +69,26 @@ public class ChristmasTree
         {
             for (int j = startCorner[1]; j <= EndCorner[1]; j++)
             {
-                lightGrid[j][i] = (lightGrid[j][i] + 1) % 2; // if 0 +1 = 1 = on, if 1 + 1 = 2; 2%2=0 = off
+                lightGrid[j][i] = (lightGrid[j][i] + 2); // if 0 +1 = 1 = on, if 1 + 1 = 2; 2%2=0 = off
             }
         }
+    }
+
+    public int[][] parseInstruction(string instruction)
+    //public string[] parseInstruction(string instruction)
+    {
+        if (instruction.Contains("turn on"))
+        {
+            string[] sliced = instruction.Substring("turn on".Length + 1).Split(" through ");
+            int[][] corners = sliced
+                .Select(subArray => subArray
+                    .Split(',')
+                    .Select(int.Parse)
+                    .ToArray())
+                .ToArray();
+            return corners;
+        }
+        //return [[0], [0]];
+        return [[0]];
     }
 }
